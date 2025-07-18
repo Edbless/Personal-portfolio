@@ -1,121 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<title>GIFTY HEMANS | Professional Portfolio</title>
-<style>
-  /* ————— Reset & Base ————— */
-*, *::before, *::after {
-  margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;
-}
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  background: #D9D1B9; /* soft beige tone from palette */ /* :contentReference[oaicite:1]{index=1} */
-  color: #261B13; /* very dark, near-black for readability */
-}
-a {
-  color: #51D0DE; /* lightning blue accent */ /* :contentReference[oaicite:2]{index=2} */
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-  color: #BF4AA8; /* lightning purple accent */ /* :contentReference[oaicite:3]{index=3} */
-}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>GIFTY HEMANS | Professional Portfolio</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ————— Reset & Base ————— */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: #D9D1B9; /* soft beige */ /* Pop from Lightning Blue-Purple palette :contentReference[oaicite:1]{index=1} */
+      color: #261B13;
+    }
+    a {
+      color: #51D0DE; /* lightning blue accent :contentReference[oaicite:2]{index=2} */
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #BF4AA8; /* lightning purple accent :contentReference[oaicite:3]{index=3} */
+      text-decoration: underline;
+    }
 
-/* ————— Navbar ————— */
-/* (unchanged from your existing code, or adjust background to beige/opacity) */
+    /* ————— Navbar ————— */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(217,209,185,0.9); /* translucent beige */
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-size: 1.75em;
+      font-weight: 700;
+      color: #6B4262; /* deep muted purple */
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5em;
+    }
+    .nav-links a {
+      padding: 0.5em;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -0.2em;
+      height: 2px;
+      background: #6B4262;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #6B4262;
+    }
 
-/* ————— Sections ————— */
-section {
-  padding: 6em 1.5em;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: #EAE2D5; /* light beige background */ /* :contentReference[oaicite:4]{index=4} */
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
+    /* ————— Sections ————— */
+    section {
+      padding: 6em 1.5em;
+      max-width: 1100px;
+      margin: 2em auto;
+      background: #EAE2D5; /* light beige */
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    #home {
+      background: linear-gradient(135deg, #51D0DE, #BF4AA8);
+      color: #fff;
+      margin-top: 0;
+    }
+    #home h1 {
+      font-size: 3em;
+      color: #fff;
+    }
+    #home p {
+      font-size: 1.25em;
+      color: #F0E7DC;
+      max-width: 700px;
+      text-align: center;
+    }
+    h2.section-title {
+      font-size: 2.5em;
+      margin-bottom: 0.75em;
+      text-align: center;
+      color: #6B4262;
+    }
 
-/* Highlight headings */
-h2.section-title {
-  color: #6B4262; /* deep muted purple */ /* :contentReference[oaicite:5]{index=5} */
-}
+    /* ————— Skills Grid ————— */
+    .skills-grid {
+      display: grid;
+      gap: 1em;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    .skills-grid .skill {
+      background: #CCC0BD;
+      padding: 1em;
+      font-size: 1em;
+      font-weight: 500;
+      border-radius: 4px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
+      color: #261B13;
+    }
+    .skills-grid .skill:hover {
+      background: #A2BBCB; /* light blue tint */
+      transform: scale(1.05);
+    }
 
-/* Home Section */
-#home {
-  background: linear-gradient(135deg, #51D0DE, #BF4AA8); /* blue→purple gradient */ /* :contentReference[oaicite:6]{index=6} */
-  color: #FFFFFF;
-}
-#home h1 {
-  color: #FFFFFF;
-}
-#home p {
-  color: #F0E7DC;
-}
+    /* ————— Contact Form & Buttons ————— */
+    form {
+      max-width: 600px;
+      margin: 2em auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    form label { font-weight: 600; }
+    form input, form textarea {
+      padding: 0.75em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    form button {
+      background: #6B4262;
+      color: #EAE2D5;
+      padding: 0.75em 1.5em;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+    form button:hover {
+      background: #51D0DE;
+      color: #261B13;
+    }
+    .form-status {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 1em;
+    }
 
-/* ————— Skills Grid ————— */
-.skills-grid .skill {
-  background: #CCC0BD; /* muted beige */ /* :contentReference[oaicite:7]{index=7} */
-  color: #261B13;
-}
-.skills-grid .skill:hover {
-  background: #A2BBCB; /* light blue tint */ /* :contentReference[oaicite:8]{index=8} */
-  transform: scale(1.05);
-}
+    /* ————— Footer & Social Links ————— */
+    footer {
+      background: linear-gradient(135deg, #261B13, #6B4262);
+      padding: 3em 1em;
+      text-align: center;
+      color: #EAE2D5;
+    }
+    .social-links {
+      display: inline-flex;
+      gap: 1em;
+      margin-bottom: 1em;
+    }
+    .social-links a {
+      color: #EAE2D5;
+      font-size: 1.6em;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-links a:hover {
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .social-links a.github:hover   { color: #6CC644; }
+    .social-links a.facebook:hover { color: #3b5998; }
+    .social-links a.twitter:hover  { color: #1DA1F2; }
+    .social-links a.linkedin:hover { color: #0077B5; }
+    .social-links a.instagram:hover{ color: #E4405F; }
+    footer p { margin-top: 1em; font-size: 0.9em; }
 
-/* ————— Contact Buttons ————— */
-.contact-list a {
-  background: #6B4262; /* deep purple button */ /* :contentReference[oaicite:9]{index=9} */
-  color: #EAE2D5;
-}
-.contact-list a:hover {
-  background: #51D0DE;
-}
-
-/* ————— Footer & Social Links ————— */
-footer {
-  background: linear-gradient(135deg, #261B13, #6B4262); /* dark → muted purple */ /* :contentReference[oaicite:10]{index=10} */
-  padding: 3em 1em;
-  text-align: center;
-  color: #EAE2D5;
-}
-footer p {
-  margin-top: 1em;
-  font-size: 0.9em;
-}
-
-/* Social icons styling */
-.social-links {
-  display: inline-flex;
-  gap: 1em;
-  margin-bottom: 1em;
-}
-.social-links a {
-  color: #EAE2D5;
-  font-size: 1.6em;
-  transition: color 0.3s, transform 0.3s;
-}
-.social-links a:hover {
-  color: #FFFFFF;
-  transform: translateY(-3px);
-}
-/* Optional brand tints on hover */
-.social-links a.github:hover   { color: #6CC644; }
-.social-links a.facebook:hover { color: #3b5998; }
-.social-links a.twitter:hover  { color: #1DA1F2; }
-.social-links a.linkedin:hover { color: #0077B5; }
-.social-links a.instagram:hover{ color: #E4405F; }
-
-</style>
+    /* ————— Mobile Nav Toggle ————— */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .menu-toggle {
+        display: block;
+        font-size: 1.75em;
+        cursor: pointer;
+        color: #6B4262;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-container">
     <div class="nav-logo">GIFTY HEMANS</div>
-    <div class="menu-toggle">&#9776;</div>
+    <div class="menu-toggle" onclick="toggleNav()">☰</div>
     <div class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -127,7 +215,7 @@ footer p {
 
 <section id="home">
   <h1>GIFTY HEMANS</h1>
-  <p>I’m a forward-thinking Computer Science student, crafting elegant code and bold ideas, weaving logic with creativity.</p>
+  <p>I’m a forward‑thinking Computer Science student, crafting elegant code and bold ideas—where logic meets creativity.</p>
 </section>
 
 <section id="about">
@@ -155,55 +243,41 @@ footer p {
 
   <form id="contact-form" action="https://formspree.io/f/mrblgrpw" method="POST">
     <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Your name" required />
+    <input type="text" id="name" name="name" placeholder="Your name" required>
 
     <label for="email">Email Address</label>
-    <input type="email" id="email" name="_replyto" placeholder="you@example.com" required />
+    <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
 
     <label for="message">Message</label>
     <textarea id="message" name="message" rows="5" placeholder="Your message…" required></textarea>
 
     <button type="submit">Send Message</button>
   </form>
-
   <p id="form-response" class="form-status"></p>
 </section>
 
 <footer>
   <div class="social-links">
-    <a href="https://github.com/Edbless" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://facebook.com/edithgifty.hemans" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://x.com/edithhemans?s=11" target="_blank" aria-label="Twitter">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/gifty-hemans-48984319b" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://www.instagram.com/bby_hemans" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
+    <a href="https://github.com/Edbless"      class="github"  aria-label="GitHub"     target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://facebook.com/edithgifty.hemans" class="facebook" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://x.com/edithhemans?s=11"  class="twitter"  aria-label="Twitter"      target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/gifty-hemans-48984319b" class="linkedin" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/bby_hemans" class="instagram" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
   <p>© 2025 Gifted • Crafted with clarity & passion</p>
 </footer>
 
-
 <script>
-  // Toggle nav for mobile
-  document.querySelector('.menu-toggle').addEventListener('click', () => {
+  function toggleNav() {
     const links = document.querySelector('.nav-links');
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.display = (links.style.display === 'flex') ? '' : 'flex';
     links.style.flexDirection = 'column';
-    links.style.background = 'rgba(255,255,255,0.95)';
+    links.style.background = 'rgba(217,209,185,0.95)';
+    links.style.padding = '1em';
     links.style.position = 'absolute';
     links.style.top = '100%';
     links.style.right = '1em';
-    links.style.padding = '1em';
-  });
+  }
 </script>
-
 </body>
 </html>
