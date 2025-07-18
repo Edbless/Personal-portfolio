@@ -3,54 +3,111 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <title>GIFTY HEMANS | Professional Portfolio</title>
 <style>
-  /* Reset & base */
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-  body { font-family: 'Inter', sans-serif; color:#333; line-height:1.6; background:#fafafa; }
-  a { color:#007acc; text-decoration:none; }
-  a:hover { text-decoration:underline; }
+  /* ————— Reset & Base ————— */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background: #D9D1B9; /* soft beige tone from palette */ /* :contentReference[oaicite:1]{index=1} */
+  color: #261B13; /* very dark, near-black for readability */
+}
+a {
+  color: #51D0DE; /* lightning blue accent */ /* :contentReference[oaicite:2]{index=2} */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #BF4AA8; /* lightning purple accent */ /* :contentReference[oaicite:3]{index=3} */
+}
 
-  /* Navbar */
-  nav { position:sticky; top:0; background:rgba(255,255,255,0.95); backdrop-filter:blur(6px);
-        box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:100; }
-  .nav-container { max-width:1100px; margin:0 auto; padding:1em; display:flex; justify-content:space-between; align-items:center; }
-  .nav-logo { font-size:1.5em; font-weight:600; }
-  .nav-links { display:flex; gap:1.5em; }
-  .nav-links a { padding:0.5em; font-weight:500; }
-  .nav-links a.active { border-bottom:2px solid #007acc; }
+/* ————— Navbar ————— */
+/* (unchanged from your existing code, or adjust background to beige/opacity) */
 
-  /* Sections */
-  section { padding:6em 1.5em; max-width:1100px; margin:0 auto; }
-  #home { display:flex; align-items:center; justify-content:center; height:100vh; text-align:center; flex-direction:column; background:#ffffff; }
-  #home h1 { font-size:3em; margin-bottom:0.5em; color:#007acc; }
-  #home p { font-size:1.25em; max-width:700px; }
+/* ————— Sections ————— */
+section {
+  padding: 6em 1.5em;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #EAE2D5; /* light beige background */ /* :contentReference[oaicite:4]{index=4} */
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 
-  h2.section-title { font-size:2.5em; margin-bottom:0.75em; text-align:center; color:#333; }
+/* Highlight headings */
+h2.section-title {
+  color: #6B4262; /* deep muted purple */ /* :contentReference[oaicite:5]{index=5} */
+}
 
-  #about, #skills, #contact { background:#fff; margin-top:2em; border-radius:6px; }
+/* Home Section */
+#home {
+  background: linear-gradient(135deg, #51D0DE, #BF4AA8); /* blue→purple gradient */ /* :contentReference[oaicite:6]{index=6} */
+  color: #FFFFFF;
+}
+#home h1 {
+  color: #FFFFFF;
+}
+#home p {
+  color: #F0E7DC;
+}
 
-  /* Skills grid */
-  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-                 gap:1em; margin-top:1em; }
-  .skills-grid .skill { background:#f0f4f8; padding:1em; font-size:1em; font-weight:500; border-radius:4px;
-                        text-align:center; transition:transform .2s; }
-  .skills-grid .skill:hover { transform:scale(1.05); }
+/* ————— Skills Grid ————— */
+.skills-grid .skill {
+  background: #CCC0BD; /* muted beige */ /* :contentReference[oaicite:7]{index=7} */
+  color: #261B13;
+}
+.skills-grid .skill:hover {
+  background: #A2BBCB; /* light blue tint */ /* :contentReference[oaicite:8]{index=8} */
+  transform: scale(1.05);
+}
 
-  /* Contact */
-  .contact-list { display:flex; flex-wrap:wrap; gap:1em; justify-content:center; margin-top:1em; }
-  .contact-list a { background:#007acc; color:#fff; padding:0.75em 1.5em; border-radius:4px;
-                    font-weight:600; transition:background .3s; }
-  .contact-list a:hover { background:#005fa3; }
+/* ————— Contact Buttons ————— */
+.contact-list a {
+  background: #6B4262; /* deep purple button */ /* :contentReference[oaicite:9]{index=9} */
+  color: #EAE2D5;
+}
+.contact-list a:hover {
+  background: #51D0DE;
+}
 
-  /* Footer */
-  footer { text-align:center; padding:2em 1em; font-size:0.9em; color:#666; }
+/* ————— Footer & Social Links ————— */
+footer {
+  background: linear-gradient(135deg, #261B13, #6B4262); /* dark → muted purple */ /* :contentReference[oaicite:10]{index=10} */
+  padding: 3em 1em;
+  text-align: center;
+  color: #EAE2D5;
+}
+footer p {
+  margin-top: 1em;
+  font-size: 0.9em;
+}
 
-  /* Responsive Nav collapse */
-  @media(max-width:600px) {
-    .nav-links { display:none; }
-    nav .menu-toggle { display:block; cursor:pointer; font-size:1.5em; }
-  }
+/* Social icons styling */
+.social-links {
+  display: inline-flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.social-links a {
+  color: #EAE2D5;
+  font-size: 1.6em;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-links a:hover {
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+/* Optional brand tints on hover */
+.social-links a.github:hover   { color: #6CC644; }
+.social-links a.facebook:hover { color: #3b5998; }
+.social-links a.twitter:hover  { color: #1DA1F2; }
+.social-links a.linkedin:hover { color: #0077B5; }
+.social-links a.instagram:hover{ color: #E4405F; }
+
 </style>
 </head>
 <body>
@@ -94,17 +151,45 @@
 
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-  <p style="text-align:center;">I’m eager to collaborate, build, or just connect. Feel free to reach out via email or social profiles below:</p>
-  <div class="contact-list">
-    <a href="mailto:giftyhemans8&#64;.com">Email Me</a>
-    <a href="https://github.com/Edbless" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/giftyhemans" target="_blank">LinkedIn</a>
-  </div>
+  <p>If you’d like to collaborate, connect, or just say hello — don’t hesitate.</p>
+
+  <form id="contact-form" action="https://formspree.io/f/mrblgrpw" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="_replyto" placeholder="you@example.com" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Your message…" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p id="form-response" class="form-status"></p>
 </section>
 
 <footer>
-  © 2025 Gifty Hemans • Crafted with clarity, passion and pure HTML/CSS
+  <div class="social-links">
+    <a href="https://github.com/Edbless" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://facebook.com/edithgifty.hemans" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://x.com/edithhemans?s=11" target="_blank" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/gifty-hemans-48984319b" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/bby_hemans" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  <p>© 2025 Gifted • Crafted with clarity & passion</p>
 </footer>
+
 
 <script>
   // Toggle nav for mobile
