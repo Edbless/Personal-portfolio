@@ -1,169 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>GIFTY HEMANS | Professional Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    /* ——— Reset & Base ——— */
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-    body { font-family:'Inter',sans-serif; background:#F5F1E8; color:#1A1A1A; }
-    a { color:#0C7CA5; text-decoration:none; transition:color .3s; }
-    a:hover { color:#074C6E; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GIFTY HEMANS | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+  /* Reset & Base */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; background:#F5F1E8; color:#1A1A1A; line-height:1.6; }
+  a { color:#0C7CA5; text-decoration:none; transition:color .3s; }
+  a:hover { color:#074C6E; }
 
-    /* ——— Container ——— */
-    .container { width:90%; max-width:1100px; margin:0 auto; }
+  .container { width:90%; max-width:1100px; margin:0 auto; }
 
-    /* ——— Navbar ——— */
-    nav { background:#FFFFFF; position:sticky; top:0; box-shadow:0 2px 6px rgba(0,0,0,0.1); z-index:100; }
-    .nav-container { display:flex; justify-content:space-between; align-items:center; padding:1em 0; }
-    .nav-logo { font-size:1.75em; font-weight:700; color:#0C7CA5; }
-    .nav-links { display:flex; gap:1.5em; }
-    .nav-links a { padding:.5em; font-weight:500; }
-    .nav-links a.active::after {
-      content:''; position:absolute; left:0; right:0; bottom:-4px;
-      height:2px; background:#0C7CA5; }
-    .menu-toggle { display:none; font-size:1.75em; color:#0C7CA5; cursor:pointer; }
+  /* Navbar */
+  nav { background:#FFFFFF; position:sticky; top:0; box-shadow:0 2px 6px rgba(0,0,0,0.1); z-index:100; }
+  .nav-container { display:flex; justify-content:space-between; align-items:center; padding:1em 0; }
+  .nav-logo { font-size:1.75em; font-weight:700; color:#0C7CA5; }
+  .nav-links { display:flex; gap:1.5em; position:relative; }
+  .nav-links a { padding:.5em; font-weight:500; }
+  .nav-links a.active::after {
+    content:''; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:#0C7CA5;
+  }
+  .menu-toggle { display:none; font-size:1.75em; color:#0C7CA5; cursor:pointer; }
 
-    /* ——— Sections ——— */
-    section { padding:5em 0; }
-    #home { background:#0C7CA5; color:#FFF; text-align:center; }
-    #home h1 { font-size:2.75em; margin-bottom:.5em; }
-    #home p { max-width:700px; margin:0 auto; font-size:1.1em; line-height:1.5; }
+  /* Home */
+  #home { background:#0C7CA5; color:#FFF; padding:6em 0; text-align:center; }
+  #home h1 { font-size:3em; margin-bottom:.5em; }
+  #home p { font-size:1.2em; max-width:800px; margin:0 auto; }
 
-    .section-content { background:#FFFFFF; padding:3em 2em; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+  /* Section content */
+  section { padding:4em 0; }
+  .section-content { background:#FFFFFF; padding:3em 2em; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
 
-    h2.section-title { font-size:2.25em; margin-bottom:1em; color:#0C7CA5; text-align:center; }
+  h2.section-title { font-size:2.25em; margin-bottom:1em; color:#0C7CA5; text-align:center; }
+  p { text-align:center; }
 
-    .skills-grid { display:grid; gap:1em; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); }
-    .skill { background:#E3E0DA; padding:1em; border-radius:6px; text-align:center; transition:transform .2s; }
-    .skill:hover { transform:scale(1.05); background:#D0D9E0; }
+  /* Skills cards grid */
+  .skills-grid {
+    display:grid;
+    gap:1.5em;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  }
+  .skill {
+    background:#0C7CA5;
+    color:#FFF;
+    padding:1.5em;
+    border-radius:10px;
+    text-align:center;
+    font-size:1.1em;
+    font-weight:600;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .skill:hover {
+    transform: scale(1.05);
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+  }
 
-    form {
-      max-width:600px; margin:1em auto; display:flex; flex-direction:column; gap:1em;
-    }
-    form input, form textarea { padding:.75em; border:1px solid #CCC; border-radius:4px; }
-    form button {
-      width:fit-content; padding:.75em 1.5em; background:#0C7CA5; color:#FFF; border:none;
-      border-radius:4px; font-weight:600; cursor:pointer; transition:background .3s;
-    }
-    form button:hover { background:#074C6E; }
-    .form-status { text-align:center; font-weight:600; margin-top:1em; }
+  /* Contact form */
+  form { max-width:600px; margin:1em auto; display:flex; flex-direction:column; gap:1em; }
+  form label { font-weight:600; text-align:left; }
+  form input, form textarea {
+    padding:.75em; border:1px solid #CCC; border-radius:4px; font-size:1em;
+  }
+  form button {
+    width:fit-content; padding:.75em 1.5em; background:#0C7CA5; color:#FFF; border:none;
+    border-radius:4px; font-weight:600; cursor:pointer; transition:background .3s;
+  }
+  form button:hover { background:#074C6E; }
 
-    /* ——— Footer & Social ——— */
-    footer { background:#FFFFFF; padding:3em 0; text-align:center; }
-    .social-links { display:inline-flex; gap:1em; }
-    .social-links a { color:#666; font-size:1.6em; transition:color .3s, transform .3s; }
-    .social-links a:hover {
-      color:#0C7CA5; transform:translateY(-3px);
-    }
-    .social-links a.github:hover   { color:#333; }
-    .social-links a.facebook:hover { color:#3b5998; }
-    .social-links a.twitter:hover  { color:#1DA1F2; }
-    .social-links a.linkedin:hover { color:#0077B5; }
-    .social-links a.instagram:hover{ color:#E4405F; }
-    footer p { margin-top:1em; color:#555; }
+  /* Footer */
+  footer { background:#FFFFFF; padding:3em 0; text-align:center; }
+  .social-links { display:inline-flex; gap:1em; margin-bottom:1em; }
+  .social-links a { color:#666; font-size:1.6em; transition:color .3s, transform .3s; }
+  .social-links a:hover { color:#0C7CA5; transform:translateY(-3px); }
+  .social-links a.github:hover { color:#333; }
+  .social-links a.facebook:hover { color:#3b5998; }
+  .social-links a.twitter:hover { color:#1DA1F2; }
+  .social-links a.linkedin:hover { color:#0077B5; }
+  .social-links a.instagram:hover { color:#E4405F; }
 
-    /* ——— Responsive ——— */
-    @media (max-width:768px) {
-      .nav-links { display:none; position:absolute; top:100%; right:0; background:#FFF;
-        flex-direction:column; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-      .menu-toggle { display:block; }
+  footer p { color:#555; font-size:0.9em; }
 
-      #home h1 { font-size:2.25em; }
-      .section-content { padding:2em 1em; }
-    }
-  </style>
+  /* Responsive */
+  @media (max-width:768px) {
+    .nav-links { display:none; position:absolute; top:100%; right:0; background:#FFF; flex-direction:column; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+    .menu-toggle { display:block; }
+    #home h1 { font-size:2.25em; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="container nav-container">
-      <div class="nav-logo">GIFTY HEMANS</div>
-      <div class="menu-toggle" onclick="toggleNav()">☰</div>
-      <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
+<nav>
+  <div class="container nav-container">
+    <div class="nav-logo">GIFTY HEMANS</div>
+    <div class="menu-toggle" onclick="toggleNav()">☰</div>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Home -->
-  <section id="home">
-    <div class="container">
-      <h1>Gifty Hemans</h1>
-      <p>I’m a forward‑thinking Computer Science student, crafting elegant code and bold ideas—where logic meets creativity.</p>
+<section id="home">
+  <div class="container">
+    <h1>Gifty Hemans</h1>
+    <p>As a passionate Computer Science student, I sculpt creativity in code. Here, logic meets ambition, and I build solutions that matter.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container section-content">
+    <h2 class="section-title">About Me</h2>
+    <p>I’m Gifty Hemans—a problem-solver, innovator, and lifelong learner. I craft code that’s thoughtful and precise, weaving data structures with poetic clarity. Let’s build something meaningful together.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container section-content">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill">JavaScript / ES6+</div>
+      <div class="skill">Python & Data Analysis</div>
+      <div class="skill">HTML5 & CSS3</div>
+      <div class="skill">React & Redux</div>
+      <div class="skill">Algorithms & Data Structures</div>
+      <div class="skill">SQL & NoSQL Databases</div>
+      <div class="skill">Version Control (Git)</div>
+      <div class="skill">Responsive / Mobile-First Design</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container section-content">
-      <h2 class="section-title">About Me</h2>
-      <p>Hello—I’m Gifty Hemans, weaving digital dreams into reality. I explore algorithms, dance in code, and build solutions with poetic flair. I thrive on challenges that stretch both my mind and imagination.</p>
+<section id="contact">
+  <div class="container section-content">
+    <h2 class="section-title">Contact</h2>
+    <p>If you're interested in collaborating, sharing ideas, or just saying hello—let’s connect!</p>
+    <form id="contact-form" action="https://formspree.io/f/mrblgrpw" method="POST">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" placeholder="Your name" required>
+      <label for="email">Email Address</label>
+      <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your message…" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="form-response" class="form-status"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="social-links">
+      <a href="https://github.com/Edbless" class="github" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://facebook.com/edithgifty.hemans" class="facebook" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/edithhemans?s=11" class="twitter" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/gifty-hemans-48984319b" class="linkedin" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com/bby_hemans" class="instagram" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-  </section>
+    <p>© 2025 Gifty Hemans • Crafted with clarity & passion</p>
+  </div>
+</footer>
 
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container section-content">
-      <h2 class="section-title">Skills &amp; Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill">JavaScript / ES6+</div>
-        <div class="skill">Python & Data Analysis</div>
-        <div class="skill">HTML5 & CSS3 / SCSS</div>
-        <div class="skill">React.js & Redux</div>
-        <div class="skill">Algorithms & DSA</div>
-        <div class="skill">SQL / NoSQL Databases</div>
-        <div class="skill">Git & Version Control</div>
-        <div class="skill">Responsive Design</div>
-      </div>
-    </div>
-  </section>
+<script>
+function toggleNav(){
+  const nav = document.querySelector('.nav-links');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.flexDirection = 'column';
+  nav.style.padding = '1em';
+}
+</script>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container section-content">
-      <h2 class="section-title">Contact</h2>
-      <p>Feel free to reach out—I’m eager to collaborate, connect, or just say hello!</p>
-      <form id="contact-form" action="https://formspree.io/f/mrblgrpw" method="POST">
-        <label for="name">Full Name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required>
-        <label for="email">Email Address</label>
-        <input id="email" name="_replyto" type="email" placeholder="you@example.com" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Your message…" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p id="form-response" class="form-status"></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://github.com/Edbless" class="github" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://facebook.com/edithgifty.hemans" class="facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://x.com/edithhemans?s=11" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com/in/gifty-hemans-48984319b" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/bby_hemans" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>© 2025 Gifty Hemans • Crafted with clarity & passion</p>
-    </div>
-  </footer>
-
-  <script>
-    function toggleNav() {
-      const nav = document.querySelector('.nav-links');
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.padding = '1em';
-    }
-  </script>
 </body>
 </html>
